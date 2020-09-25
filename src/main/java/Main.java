@@ -19,8 +19,7 @@ public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException {
         ObjectMapper mapper = new ObjectMapper()
-                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                ;
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         URL url;
         DataInputStream dataInputStream = null;
         dbConnection dbc = new dbConnection();
@@ -32,8 +31,8 @@ public class Main {
                 System.out.println("Processing "+ nextId);
                 try {
                     URLConnection con = url.openConnection();
-                    con.setConnectTimeout(300);
-                    con.setReadTimeout(300);
+                    con.setConnectTimeout(150);
+                    con.setReadTimeout(150);
                     InputStream in = con.getInputStream();
                     dataInputStream = new DataInputStream(in);
                 } catch (IOException exc) {
